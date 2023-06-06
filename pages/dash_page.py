@@ -36,9 +36,10 @@ class DashPage:
         with allure.step('В меню выбираем Удалить'):
             browser.all('.ContextMenu-Item').element_by(have.text('Удалить')).click()
         with allure.step('Нажимаем Подтвердить удаление'):
-            browser.all('.Confirm-Button').element_by(have.text('Подтвердить')).click()
+            button_confirm = browser.all('.Confirm-Button').element_by(have.text('Подтвердить'))
+            button_confirm.click()
             browser.element('.CommonmarkRender-Paragraph').should(be.present)
-            time.sleep(1)
+            browser.wait_until(button_confirm.element_by(be.disabled))
         with allure.step('Проверяем отсутствие новости в ленте по тексту новости'):
             news = browser.element('.CommonmarkRender-Paragraph').should(be.present).get(query.text)
             print('Текст последней публикации в ленте после удаления: ',news)
