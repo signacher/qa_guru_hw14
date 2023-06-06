@@ -26,7 +26,7 @@ class DashPage:
 
         browser.driver.refresh()
 
-        with allure.step('Проверяем появление новости в ленте по тексту новости'):
+        with allure.step('Проверяем наличие новости в ленте после обновления страницы по тексту новости'):
             browser.all('.CommonmarkRender-Paragraph')[0].should(have.text('Новость тест'))
 
 
