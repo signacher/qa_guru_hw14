@@ -1,3 +1,5 @@
+import time
+
 import allure
 from selene.support.shared import browser
 from selene import have, query, be
@@ -13,11 +15,15 @@ class DashPage:
             browser.element('.DraftEditorMui5').click()
 
         with allure.step('Вводим в поле ввода текст новости'):
-            browser.element('//div[@class="notranslate public-DraftEditor-content" and @role="combobox"]').send_keys('Новость тест').press_tab().press_tab()
+            browser.element('//div[@class="notranslate public-DraftEditor-content" and @role="combobox"]').send_keys('Новость тест').press_tab()
         with allure.step('Нажимаем кнопку Опубликовать'):
             # browser.all('.MuiButton-sizeLarge').element_by(have.exact_text('ОПУБЛИКОВАТЬ')).perform(selene.command.js.click)
-            browser.element('#SENDNEWSBUTTON').should(have.text("ОПУБЛИКОВАТЬ")).click()
+            browser.element('#SENDNEWSBUTTON').should(be.clickable).click()
 
+        with allure.step('Проверяем появление новости в ленте по тексту новости'):
+            browser.all('.CommonmarkRender-Paragraph')[0].with_(timeout=browser.config.timeout*2).should(have.text('Новость тест'))
+
+        browser.driver.refresh()
 
         with allure.step('Проверяем появление новости в ленте по тексту новости'):
             browser.all('.CommonmarkRender-Paragraph')[0].should(have.text('Новость тест'))
