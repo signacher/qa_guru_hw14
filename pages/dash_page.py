@@ -13,10 +13,10 @@ class DashPage:
             browser.element('.DraftEditorMui5').click()
 
         with allure.step('Вводим в поле ввода текст новости'):
-            browser.element('//div[@class="notranslate public-DraftEditor-content" and @role="combobox"]').type('Новость тест').press_tab()
+            browser.element('//div[@class="notranslate public-DraftEditor-content" and @role="combobox"]').type('Новость тест').press_tab().press_tab()
         with allure.step('Нажимаем кнопку Опубликовать'):
             # browser.all('.MuiButton-sizeLarge').element_by(have.exact_text('ОПУБЛИКОВАТЬ')).perform(selene.command.js.click)
-            browser.element('#SENDNEWSBUTTON').click()
+            browser.element('#SENDNEWSBUTTON').should(have.text("ОПУБЛИКОВАТЬ")).click()
 
 
 
