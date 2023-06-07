@@ -16,7 +16,9 @@ class DashPage:
 
         with allure.step('Вводим в поле ввода текст новости'):
             browser.element('//div[@class="notranslate public-DraftEditor-content" and @role="combobox"]').type('Новость тест').press_tab()
-        time.sleep(2)
+        with allure.step('Проверяем заполнение в поле ввода'):
+        # time.sleep(2)
+            browser.wait_until((browser.element('//div[@class="notranslate public-DraftEditor-content" and @role="combobox"]').should(have.text('Новость тест') )))
         with allure.step('Нажимаем кнопку Опубликовать'):
             # browser.all('.MuiButton-sizeLarge').element_by(have.exact_text('ОПУБЛИКОВАТЬ')).perform(selene.command.js.click)
             browser.element('#SENDNEWSBUTTON').should(be.clickable).click()
