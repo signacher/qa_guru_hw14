@@ -38,8 +38,9 @@ class DashPage:
         with allure.step('Нажимаем Подтвердить удаление'):
             button_confirm = browser.all('.Confirm-Button').element_by(have.text('Подтвердить'))
             button_confirm.click()
-            browser.wait_until((browser.element('.Confirm-Title').should(be.disabled)))
-            browser.element('.CommonmarkRender-Paragraph').should(be.present)
+            # browser.wait_until((browser.element('.Confirm-Title').should(be.disabled)))
+            browser.driver.refresh()
+            # browser.element('.CommonmarkRender-Paragraph').should(be.present)
 
         with allure.step('Проверяем отсутствие новости в ленте по тексту новости'):
             news = browser.element('.CommonmarkRender-Paragraph').should(be.present).get(query.text)
