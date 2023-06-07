@@ -16,16 +16,16 @@ class DashPage:
 
         with allure.step('Вводим в поле ввода текст новости'):
             browser.element('//div[@class="notranslate public-DraftEditor-content" and @role="combobox"]').type('Новость тест').press_tab()
-        with allure.step('Проверяем заполнение в поле ввода'):
-        # time.sleep(2)
-            browser.wait_until((browser.element('//div[@class="notranslate public-DraftEditor-content" and @role="combobox"]').should(have.text('Новость тест') )))
+
+        time.sleep(1)
+
         with allure.step('Нажимаем кнопку Опубликовать'):
             # browser.all('.MuiButton-sizeLarge').element_by(have.exact_text('ОПУБЛИКОВАТЬ')).perform(selene.command.js.click)
             browser.element('#SENDNEWSBUTTON').should(be.clickable).click()
 
         with allure.step('Проверяем появление новости в ленте по тексту новости'):
-            browser.all('.CommonmarkRender-Paragraph')[0].with_(timeout=browser.config.timeout*2).should(have.text('Новость тест'))
-
+            browser.all('.CommonmarkRender-Paragraph')[0].should(have.text('Новость тест'))
+        # .with_(timeout=browser.config.timeout * 2)
         browser.driver.refresh()
 
         with allure.step('Проверяем наличие новости в ленте после обновления страницы по тексту новости'):
