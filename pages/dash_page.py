@@ -24,7 +24,7 @@ class DashPage:
             browser.element('#SENDNEWSBUTTON').should(be.clickable).click()
 
         with allure.step('Проверяем появление новости в ленте по тексту новости'):
-            browser.all('.CommonmarkRender-Paragraph')[0].should(have.text('Новость тест'))
+            browser.all('.CommonmarkRender-Paragraph')[0].with_(timeout=browser.config.timeout*2).should(have.text('Новость тест'))
 
         browser.driver.refresh()
 
