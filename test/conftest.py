@@ -4,7 +4,7 @@ from selenium import webdriver
 from util import attach
 
 
-@pytest.fixture(scope="function",autouse = True )
+@pytest.fixture(scope="module",autouse = True )
 def setup_browser():
     options = webdriver.ChromeOptions()
     options.browser_version = "100"

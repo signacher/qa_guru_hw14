@@ -13,6 +13,14 @@ def test_publication_news():
 
     publication = DashPage()
     publication.publication_news()
+
+
+@allure.tag('Web-Publication')
+@allure.label('owner', 'Telnov')
+@allure.feature('Новость')
+@allure.story('Удаление новости из ленты')
+def test_delete_news():
+    publication = DashPage()
     publication.delete_news()
 
 
