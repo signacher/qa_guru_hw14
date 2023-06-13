@@ -25,7 +25,9 @@ def setup_browser():
     )
 
     browser.config.base_url = 'https://test-dev.v5-pre.pryaniky.com'
-    browser.config.timeout = 20
+    browser.config.timeout = 30
+    browser.config.window_width = 1920
+    browser.config.window_height = 1080
 
     yield browser
 
