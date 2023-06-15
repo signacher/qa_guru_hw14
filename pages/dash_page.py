@@ -31,6 +31,15 @@ class DashPage:
             browser.all('.CommonmarkRender-Paragraph')[0].should(have.text('Новость тест'))
 
 
+    def like_news(self):
+        with allure.step('Нажимаем нравится'):
+            browser.all('.NewsActions-Like')[0].click()
+        with allure.step('Обновляем страницу'):
+            browser.driver.refresh()
+        with allure.step('проверяем число лайков'):
+            browser.all('.Bable')[1].should(have.text('1'))
+
+
     def delete_news(self):
         with allure.step('Вызываем контекстное меню'):
             browser.element('.ContextMenu-Toggle').perform(selene.command.js.click)
@@ -39,7 +48,6 @@ class DashPage:
         with allure.step('Нажимаем Подтвердить удаление'):
             button_confirm = browser.all('.Confirm-Button').element_by(have.text('Подтвердить'))
             button_confirm.click()
-            # browser.wait_until((browser.element('.Confirm-Title').should(be.disabled)))
             browser.driver.refresh()
             browser.element('.CommonmarkRender-Paragraph').should(be.present)
 
@@ -47,3 +55,19 @@ class DashPage:
             news = browser.element('.CommonmarkRender-Paragraph').should(be.present).get(query.text)
             print('Текст последней публикации в ленте после удаления: ',news)
             assert news != 'Новость тест',f'Новость не удалена!!!Текст новости {news}'
+
+    def publication_thanks(self):
+        with allure.step('Открываем форму отправки благодарности'):
+            browser.element('#thanks').click()
+        with allure.step('Вводим Кого поблагодарить'):
+            browser.all('.MuiOutlinedInput-input')[1].click()
+            browser.all('.MuiAvatar-root').element_by(have.exact_text('Арнольд Шварцнегер')).perform(selene.command.js.click)
+            time.sleep(4)
+
+        # with allure.step('Вводим в поле ввода текст новости'):
+        #     browser.element('//div[@class="notranslate public-DraftEditor-content" and @role="combobox"]').type(
+        #     'Новость тест').press_tab()
+
+    time.sleep(1)
+
+
