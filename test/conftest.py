@@ -12,17 +12,17 @@ def setup_browser():
     # Headless
     # options.add_argument('--headless=new')
 
-    # options.set_capability(
-    #     'selenoid:options',
-    #      {
-    #         "enableVNC": True,
-    #         "enableVideo": True
-    #     }
-    # )
-    # browser.config.driver_options = options
-    # browser.config.driver_remote_url = (
-    #     "https://user1:1234@selenoid.autotests.cloud/wd/hub"
-    # )
+    options.set_capability(
+        'selenoid:options',
+         {
+            "enableVNC": True,
+            "enableVideo": True
+        }
+    )
+    browser.config.driver_options = options
+    browser.config.driver_remote_url = (
+        "https://user1:1234@selenoid.autotests.cloud/wd/hub"
+    )
 
     browser.config.base_url = 'https://test-dev.v5-pre.pryaniky.com'
     browser.config.timeout = 30
