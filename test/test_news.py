@@ -22,6 +22,7 @@ def test_like_news():
     publication = DashPage()
     publication.like_news()
 
+
 @allure.tag('Web-Publication')
 @allure.label('owner', 'Telnov')
 @allure.feature('Новость')
