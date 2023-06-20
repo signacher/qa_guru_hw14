@@ -21,7 +21,7 @@ def setup_browser():
     )
     browser.config.driver_options = options
     browser.config.driver_remote_url = (
-        "https://95.216.214.178:8080/wd/hub"
+        "http://95.216.214.178:8080/wd/hub"
     )
     # browser.config.driver_remote_url = (
     #     "https://user1:1234@selenoid.autotests.cloud/wd/hub"
