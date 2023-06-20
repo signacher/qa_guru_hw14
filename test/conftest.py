@@ -19,13 +19,13 @@ def setup_browser():
             "enableVideo": True
         }
     )
-    browser.config.driver_options = options
-    browser.config.driver_remote_url = (
-        "http://95.216.214.178:8080/wd/hub"
-    )
+    # browser.config.driver_options = options
     # browser.config.driver_remote_url = (
-    #     "https://user1:1234@selenoid.autotests.cloud/wd/hub"
+    #     "http://95.216.214.178:8080/wd/hub"
     # )
+    browser.config.driver_remote_url = (
+        "https://user1:1234@selenoid.autotests.cloud/wd/hub"
+    )
 
     browser.config.base_url = 'https://test-dev.v5-pre.pryaniky.com'
     browser.config.timeout = 30
