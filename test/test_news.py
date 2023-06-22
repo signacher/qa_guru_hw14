@@ -9,7 +9,6 @@ from pages.dash_page import DashPage
 @allure.label('owner', 'Telnov')
 @allure.feature('Новость')
 @allure.story('1. Публикация новости в ленте')
-@pytest.mark.skip
 def test_publication_news():
     text_news = 'Новость тест'
     login = LoginPage()
@@ -22,7 +21,6 @@ def test_publication_news():
 @allure.label('owner', 'Telnov')
 @allure.feature('Новость')
 @allure.story('2. Поставить лайк')
-@pytest.mark.skip
 def test_like_news():
     publication = DashPage()
     publication.like_publication()
@@ -32,7 +30,6 @@ def test_like_news():
 @allure.label('owner', 'Telnov')
 @allure.feature('Новость')
 @allure.story('3. Удаление новости из ленты')
-@pytest.mark.skip
 def test_delete_news():
     text_news = 'Новость тест'
     publication = DashPage()
