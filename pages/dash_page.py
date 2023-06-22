@@ -69,6 +69,7 @@ class DashPage:
         with allure.step('Вводим в поле ввода текст благодарности'):
             browser.element('//div[@class="notranslate public-DraftEditor-content" and @role="combobox"]'
                             ).type(text_publication)
+            time.sleep(1)
         with allure.step('Вводим сумму благодарности'):
             browser.element('//input[@inputmode="numeric"]').click().type('5')
         with allure.step('Выбираем причину благодарности'):
