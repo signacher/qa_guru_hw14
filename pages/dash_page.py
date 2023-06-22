@@ -46,13 +46,14 @@ class DashPage:
         with allure.step('Нажимаем Подтвердить удаление'):
             button_confirm = browser.all('.Confirm-Button').element_by(have.text('Подтвердить'))
             button_confirm.click()
+            time.sleep(1)
             browser.driver.refresh()
             browser.element('.CommonmarkRender-Paragraph').should(be.present)
 
         with allure.step('Проверяем отсутствие новости в ленте по тексту'):
             text_last_publication = browser.element('.CommonmarkRender-Paragraph').should(be.present).get(query.text)
             print('Текст последней публикации в ленте после удаления: ',text_last_publication)
-            assert text_last_publication != text_publication,f'Новость не удалена!!!Текст новости: {text_last_publication}'
+            assert text_last_publication != text_publication,f'Публикация не удалена!!!Текст последней публикации: {text_last_publication}'
 
     def publication_thanks(self,text_publication):
         with allure.step('Открываем форму отправки благодарности'):
