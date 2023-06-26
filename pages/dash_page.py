@@ -78,12 +78,22 @@ class DashPage:
             browser.all('.MuiAutocomplete-option').element_by(have.text('Забота о продукте')).click()
         with allure.step('Нажимаем кнопку Опубликовать'):
             browser.element('#SENDNEWSBUTTON').should(be.clickable).click()
-        time.sleep(1)
+            time.sleep(1)
 
         browser.driver.refresh()
 
         with allure.step('Проверяем наличие благодарности в ленте после обновления страницы по тексту'):
             browser.all('.CommonmarkRender-Paragraph')[0].should(have.text(text_publication))
-        time.sleep(5)
+            time.sleep(1)
 
-
+    def publication_comment(self):
+        with allure.step('Вводим текст комментария'):
+            browser.all('.public-DraftEditorPlaceholder-inner')[0].click()
+            browser.all('.public-DraftStyleDefault-block')[1].type('Текст комментария')
+            browser.all('.Button_border')[1].click()
+            time.sleep(1)
+        with allure.step('Проверяем появление комментария'):
+            browser.all('.CommonmarkRender-Paragraph')[1].should(have.text('Текст комментария'))
+            browser.driver.refresh()
+        with allure.step('Проверяем yналичие комментария после обновления страницы'):
+            browser.all('.CommonmarkRender-Paragraph')[1].should(have.text('Текст комментария'))

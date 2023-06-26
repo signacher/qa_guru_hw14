@@ -19,7 +19,15 @@ def test_publication_thanks():
 @allure.tag('Web-Publication')
 @allure.label('owner', 'Telnov')
 @allure.feature('Благодарность')
-@allure.story('2.Удаление благодарности')
+@allure.story('2.Публикация комментария к благодарности')
+def test_publication_comment():
+    publication = DashPage()
+    publication.publication_comment()
+
+@allure.tag('Web-Publication')
+@allure.label('owner', 'Telnov')
+@allure.feature('Благодарность')
+@allure.story('3.Удаление благодарности')
 def test_delete_thanks():
     text_thanks = 'Текст публикации тест'
     publication = DashPage()
