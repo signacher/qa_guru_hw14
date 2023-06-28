@@ -8,7 +8,7 @@ from pages.dash_page import DashPage
 @allure.feature('Благодарность')
 @allure.story('1.Публикация благодарности в ленте')
 def test_publication_thanks():
-    text_thanks = 'Текст публикации тест'
+    text_thanks = 'Текст благодарности тест'
     login = LoginPage()
     login.login_user()
 
@@ -29,6 +29,6 @@ def test_publication_comment():
 @allure.feature('Благодарность')
 @allure.story('3.Удаление благодарности')
 def test_delete_thanks():
-    text_thanks = 'Текст публикации тест'
+    text_thanks = 'Текст благодарности тест'
     publication = DashPage()
     publication.delete_publication(text_thanks)
