@@ -46,7 +46,7 @@ class DashPage:
         with allure.step('Нажимаем Подтвердить удаление'):
             button_confirm = browser.all('.Confirm-Button').element_by(have.text('Подтвердить'))
             button_confirm.click()
-            time.sleep(1)
+            time.sleep(2)
             browser.driver.refresh()
             browser.element('.CommonmarkRender-Paragraph').should(be.present)
 
