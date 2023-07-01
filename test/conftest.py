@@ -7,7 +7,7 @@ from util import attach
 @pytest.fixture(scope="session",autouse = True )
 def setup_browser():
     options = webdriver.ChromeOptions()
-    options.browser_version = "108"
+    options.browser_version = "100"
 
     # Headless
     # options.add_argument('--headless=new')
