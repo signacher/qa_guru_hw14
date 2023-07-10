@@ -64,7 +64,7 @@ class DashPage:
             browser.all('.MuiOutlinedInput-input')[1].click().send_keys('Тестер Первый')
             time.sleep(1)
             browser.element('.PrivateSwitchBase-input').click()
-            browser.all('.MuiOutlinedInput-root')[1].click()
+            browser.all('.MuiOutlinedInput-root')[1].click().press_escape()
         with allure.step('Вызываем редактор в поле ввода текста благодарности'):
             browser.element('.DraftEditorMui5').click()
         with allure.step('Вводим в поле ввода текст благодарности'):
