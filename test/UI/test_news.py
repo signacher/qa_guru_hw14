@@ -7,6 +7,7 @@ from pages.dash_page import DashPage
 
 @allure.tag('Web-Publication')
 @allure.label('owner', 'Telnov')
+@allure.epic('UI')
 @allure.feature('Новость')
 @allure.story('1. Публикация новости в ленте')
 def test_publication_news():
@@ -19,6 +20,7 @@ def test_publication_news():
 
 @allure.tag('Web-Publication')
 @allure.label('owner', 'Telnov')
+@allure.epic('UI')
 @allure.feature('Новость')
 @allure.story('2. Поставить лайк')
 def test_like_news():
@@ -28,6 +30,7 @@ def test_like_news():
 
 @allure.tag('Web-Publication')
 @allure.label('owner', 'Telnov')
+@allure.epic('UI')
 @allure.feature('Новость')
 @allure.story('3. Удаление новости из ленты')
 def test_delete_news():
